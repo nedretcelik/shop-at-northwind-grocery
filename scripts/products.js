@@ -65,6 +65,7 @@ window.onload = () => {
   }
 
   function loadProduct() {
+    productsDetailCard.innerText = "";
     fetch("http://localhost:4000/products")
       .then((response) => response.json())
       .then((products) => {
@@ -88,6 +89,10 @@ window.onload = () => {
 
             const idH5 = document.createElement("h5");
             idH5.innerText = "Product Id: " + product.id;
+
+            const categoryIdH5 = document.createElement("h5");
+            categoryIdH5.innerText = "Category Id: " + product.categoryId;
+
             const nameH6 = document.createElement("h6");
             nameH6.innerText = "Product Name: " + product.name;
 
@@ -98,6 +103,7 @@ window.onload = () => {
             anchor.text = "See details";
 
             cardBody.appendChild(idH5);
+            cardBody.appendChild(categoryIdH5);
             cardBody.appendChild(descriptionH6);
             cardBody.appendChild(nameH6);
             cardBody.appendChild(anchor);
