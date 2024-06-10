@@ -5,6 +5,8 @@ window.onload = () => {
   const selectOption = document.querySelector("#selectOption");
   const categoryList = document.querySelector("#categoryList");
 
+
+  categoryList.style.display = "none"
   function loadCategory() {
     productsDetailCard.innerText = "";
     if (selectOption.value == "2") {
