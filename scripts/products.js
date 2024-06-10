@@ -12,11 +12,12 @@ window.onload = () => {
       fetch("http://localhost:4000/products")
         .then((response) => response.json())
         .then((products) => {
+          products.sort((a, b) => a.name.localeCompare(b.name));
+          console.log(products);
           const row = document.createElement("div");
           row.classList.add("row");
           productsDetailCard.appendChild(row);
           for (const product of products) {
-            console.log(product);
             const col = document.createElement("div");
             col.classList.add("col-md-3", "mb-3");
             row.appendChild(col);
@@ -52,6 +53,8 @@ window.onload = () => {
       fetch("http://localhost:4000/categories")
         .then((response) => response.json())
         .then((categories) => {
+          categories.sort((a, b) => a.name.localeCompare(b.name));
+
           for (const category of categories) {
             console.log(category);
             const option = new Option("option");
@@ -69,6 +72,7 @@ window.onload = () => {
     fetch("http://localhost:4000/products")
       .then((response) => response.json())
       .then((products) => {
+        products.sort((a, b) => a.name.localeCompare(b.name));
         const row = document.createElement("div");
         row.classList.add("row");
         productsDetailCard.appendChild(row);
